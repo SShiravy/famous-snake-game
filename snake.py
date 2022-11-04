@@ -1,7 +1,6 @@
 from turtle import Turtle
 
 
-
 class Snake:
     def __init__(self):
         self.body_segments = []
@@ -22,5 +21,14 @@ class Snake:
             new_y = self.body_segments[seg_index - 1].ycor()
             self.body_segments[seg_index].goto(new_x, new_y)
 
+    def up(self):
+        self.head.setheading(90)
 
+    def down(self):
+        self.head.setheading(270)
 
+    def left(self):
+        self.head.setheading(180)
+
+    def right(self):
+        self.head.setheading(0)
