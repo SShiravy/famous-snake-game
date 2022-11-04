@@ -5,7 +5,6 @@
 # Create a scoreboard
 # Detect Collision with wall
 # Detect Collision with tail
-from snakeBody import snake_body
 from gamePlay import start_game
 from turtle import Screen
 
@@ -17,9 +16,7 @@ if __name__ == "__main__":
     screen.setup(width=600, height=600)
     screen.tracer(0)
     # ------
-    snake_body_segments = snake_body()
-    #start_game(snake_body_segments,screen)
-    screen.update()
+    start_game(screen)
     # ------
     screen.exitonclick()
 

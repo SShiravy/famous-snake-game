@@ -1,7 +1,15 @@
+from time import sleep
+from snake import Snake
 
-def start_game(snake_body_segments,screen):
+MOVE_DISTANCE = 20
+SPEED = 0.25
+
+def start_game(screen):
+    snake = Snake()
     game_is_on = True
     while game_is_on:
+        sleep(SPEED)
+        snake.move_tail()
+        snake.head.forward(MOVE_DISTANCE)
         screen.update()
-        for segment in snake_body_segments:
-            segment.forward(20)
+
