@@ -4,7 +4,7 @@ from food import Food
 from scoreboard import ScoreBoard
 
 MOVE_DISTANCE = 20
-SPEED = 0.25
+SPEED = 0.1
 
 
 def start_game(screen):
@@ -24,7 +24,12 @@ def start_game(screen):
         if snake.head.distance(food) < 20:
             food.new_food()
             scoreboard.increase_score()
+            snake.grove_up()
         if snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() < -280:
             scoreboard.game_over()
             game_is_on = False
+        for segment in snake.body_segments[1:]:
+            if snake.head.distance(segment) < 15:
+                scoreboard.game_over()
+                game_is_on = False
         screen.update()
