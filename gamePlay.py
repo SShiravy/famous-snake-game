@@ -26,10 +26,10 @@ def start_game(screen):
             scoreboard.increase_score()
             snake.grove_up()
         if snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() < -280:
-            scoreboard.game_over()
-            game_is_on = False
+            scoreboard.reset()
+            snake.reset()
         for segment in snake.body_segments[1:]:
             if snake.head.distance(segment) < 15:
-                scoreboard.game_over()
-                game_is_on = False
+                scoreboard.reset()
+                snake.reset()
         screen.update()
